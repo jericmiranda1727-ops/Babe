@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            font-family: Arial, sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+
+        .gif {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 20px;
+            margin: 15px 0;
+        }
+
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            min-width: 100px;
+        }
+
+        .yes {
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+        .yes:active {
+            transform: scale(0.95);
+        }
+
+        .no {
+            background-color: white;
+            color: #ff4d6d;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Hi Babe ❤️</h1>
+    <p>I hope it's not too late for me to ask.</p>
+    <h1>Will you be my Valentine? 💖</h1>
+
+    <!-- Cute GIF -->
+    <img 
+        src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" 
+        alt="Cute love GIF"
+        class="gif"
+    >
+
+    <div class="buttons">
+        <button class="yes" onclick="sayYes()">Yes 💕</button>
+        <button class="no" ontouchstart="moveButton()" onmouseover="moveButton()">No 😜</button>
+    </div>
+</div>
+
+<script>
+    function sayYes() {
+        document.body.innerHTML = `
+            <div style="
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                height:100vh;
+                text-align:center;
+                padding:20px;
+                background: linear-gradient(to right, #ff758c, #ff7eb3);
+                color:white;
+                font-family: Arial;
+ ">
+                <div>
+                    <h1>Yaaay Babe! ❤️</h1>
+                    <p>You just made me the happiest person alive! 💘</p>
+                    <h1>I LOVE YOU SO MUCH BABE!</h1>
+                    <p> Happy Valentine's Day! 💞</p>
+                </div>
+            </div>
+        `;
+    }
+
+    function moveButton() {
+        const button = document.querySelector(".no");
+        const maxX = window.innerWidth - button.offsetWidth - 20;
+        const maxY = window.innerHeight - button.offsetHeight - 20;
+
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+
+        button.style.position = "fixed";
+        button.style.left = x + "px";
+        button.style.top = y + "px";
+    }
+</script>
+
+</body>
+</html>
